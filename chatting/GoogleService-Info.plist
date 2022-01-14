@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>43799739043-tv700c53b5evkumg2oaa68c11iiojvoo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.43799739043-tv700c53b5evkumg2oaa68c11iiojvoo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDFaMkr8VpeLVUTazCE-5uooXu3j-jrLSE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>43799739043</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ibrahimasiri.chatting</string>
+	<key>PROJECT_ID</key>
+	<string>caht-c8c4c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>caht-c8c4c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:43799739043:ios:8ffd672d1d80e2dc401d16</string>
+</dict>
+</plist>
