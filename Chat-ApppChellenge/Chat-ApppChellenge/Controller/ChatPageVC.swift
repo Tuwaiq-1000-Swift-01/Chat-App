@@ -10,17 +10,18 @@ import Firebase
 class ChatPageVC: UIViewController {
     
     var messageArr : [Message] = []
+    var reciverID : String = " "
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var messageFiled: UITextField!
     @IBOutlet weak var sendMessageOutlet: UIButton!
     
     @IBAction func sendMessageAction(_ sender: Any) {
-       
+        
         messageFiled.endEditing(true)
         messageFiled.isEnabled = false
         sendMessageOutlet.isEnabled = false
         let messageRef = Database.database().reference().child("Messages")
-        let messageDict = ["Sender": Auth.auth().currentUser?.email, "MessageBody": messageFiled.text!]
+        let messageDict = ["MessageBody": messageFiled.text!,"Sender": Auth.auth().currentUser?.uid, "reciverID": reciverID]
         messageRef.childByAutoId().setValue(messageDict){(error , ref ) in
             if error != nil{
                 print(error)
@@ -39,11 +40,20 @@ class ChatPageVC: UIViewController {
             let value = snapShot.value as! Dictionary<String,String>
             let textMessage = value["MessageBody"]!
             let sender = value["Sender"]!
-            var message = Message(sender: sender, messageBody: textMessage)
+            let reciver = value["reciverID"]!
+            
+            debugPrint(sender)
+            
+            var message = Message(sender: sender, reciver: reciver, messageBody: textMessage)
             message.messageBody = textMessage
             message.sender = sender
-            self.messageArr.append(message)
-            self.messagesTableView.reloadData()
+            message.reciver = reciver
+            
+            if((sender == Auth.auth().currentUser?.uid && reciver == self.reciverID) || (sender == self.reciverID && reciver == Auth.auth().currentUser?.uid )){
+                
+                self.messageArr.append(message)
+                self.messagesTableView.reloadData()
+            }
         }
     }
     

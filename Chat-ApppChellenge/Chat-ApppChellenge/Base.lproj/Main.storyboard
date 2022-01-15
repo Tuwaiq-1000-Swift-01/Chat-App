@@ -140,39 +140,39 @@
                                 <rect key="frame" x="20" y="188" width="374" height="374"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="bP2-om-t8t">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="217"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBz-DI-6GO">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nora" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIa-Ts-uwq">
-                                                <rect key="frame" x="0.0" y="61" width="374" height="34"/>
+                                                <rect key="frame" x="0.0" y="80" width="374" height="53.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user@test.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3S-DJ-0cV">
-                                                <rect key="frame" x="0.0" y="122" width="374" height="34"/>
+                                                <rect key="frame" x="0.0" y="160.5" width="374" height="53"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDl-cr-pHY">
-                                                <rect key="frame" x="0.0" y="183" width="374" height="34"/>
+                                                <rect key="frame" x="0.0" y="240.5" width="374" height="53.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6z-cM-Oyw">
+                                                <rect key="frame" x="0.0" y="321" width="374" height="53"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Log in"/>
+                                                <connections>
+                                                    <action selector="loginAction:" destination="LY7-oY-dZd" eventType="touchUpInside" id="S6r-OA-GPD"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqY-mt-4zm">
-                                        <rect key="frame" x="153" y="260" width="68" height="114"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Sign in"/>
-                                        <connections>
-                                            <action selector="loginAction:" destination="LY7-oY-dZd" eventType="touchUpInside" id="i9O-5e-CV4"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bP2-om-t8t" firstAttribute="leading" secondItem="hvT-hC-G3r" secondAttribute="leading" id="6M4-73-cmV"/>
@@ -259,7 +259,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contactTableView" destination="Nof-uy-BjE" id="KLD-qz-iTq"/>
-                        <segue destination="evG-aM-83L" kind="show" id="Oyt-wW-1Bc"/>
+                        <segue destination="evG-aM-83L" kind="show" identifier="moveToChatting" id="Oyt-wW-1Bc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2N-be-8oR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -296,7 +296,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zA1-hF-dt5">
-                                                    <rect key="frame" x="40" y="0.0" width="374" height="54"/>
+                                                    <rect key="frame" x="40" y="0.0" width="219" height="54"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQ9-La-xp4">
                                                             <rect key="frame" x="5" y="0.0" width="80" height="21"/>
@@ -321,7 +321,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qQ9-La-xp4" secondAttribute="trailing" constant="20" symbolic="YES" id="7ZP-yc-f0M"/>
                                                         <constraint firstItem="qQ9-La-xp4" firstAttribute="top" secondItem="zA1-hF-dt5" secondAttribute="top" id="7tK-0Z-1rF"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fML-L5-qDm" secondAttribute="trailing" symbolic="YES" id="G2e-Ni-KKW"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fML-L5-qDm" secondAttribute="trailing" constant="20" symbolic="YES" id="G2e-Ni-KKW"/>
                                                         <constraint firstAttribute="height" constant="54" id="Oza-BK-AfA"/>
                                                         <constraint firstItem="fML-L5-qDm" firstAttribute="leading" secondItem="zA1-hF-dt5" secondAttribute="leading" constant="10" id="RMX-I6-BL9"/>
                                                         <constraint firstItem="fML-L5-qDm" firstAttribute="top" secondItem="qQ9-La-xp4" secondAttribute="bottom" constant="4" id="gpO-TQ-gdO"/>
@@ -344,7 +344,7 @@
                                                 <constraint firstItem="SeD-J9-PLg" firstAttribute="top" secondItem="qx2-PV-AU4" secondAttribute="top" id="Smu-ZM-jOl"/>
                                                 <constraint firstItem="zA1-hF-dt5" firstAttribute="top" secondItem="qx2-PV-AU4" secondAttribute="top" id="dem-Ep-Pud"/>
                                                 <constraint firstItem="zA1-hF-dt5" firstAttribute="leading" secondItem="qx2-PV-AU4" secondAttribute="leading" constant="40" id="iZd-f8-9Jx"/>
-                                                <constraint firstAttribute="trailing" secondItem="zA1-hF-dt5" secondAttribute="trailing" id="vmb-T4-qik"/>
+                                                <constraint firstAttribute="trailing" secondItem="zA1-hF-dt5" secondAttribute="trailing" constant="155" id="vmb-T4-qik"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

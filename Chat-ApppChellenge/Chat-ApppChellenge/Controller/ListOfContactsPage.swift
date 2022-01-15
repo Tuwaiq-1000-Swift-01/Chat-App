@@ -9,8 +9,9 @@ import UIKit
 import Firebase
 import FirebaseAuth
 class ListOfContactsPage: UIViewController {
-
+    
     var contactsArr: [ListOfUser] = []
+    var reciverUserID : String = " "
     
     @IBOutlet weak var contactTableView: UITableView!
     @IBOutlet weak var userName: UILabel!
@@ -36,19 +37,27 @@ class ListOfContactsPage: UIViewController {
             self.contactsArr.removeAll()
             for doucment in data{
                 let name = doucment.get("Name User") as! String
-                let user = ListOfUser(userName: name)
+                let id = doucment.get("ID User") as! String
+                let user = ListOfUser(userName: name, userID: id)
                 self.contactsArr.append(user)
                 print("the user data is \(user)")
             }
             self.contactTableView.reloadData()
         }
     }
-          
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         contactTableView.delegate = self
         contactTableView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier  == "moveToChatting" {
+            let vc = segue.destination as! ChatPageVC
+            vc.reciverID = reciverUserID
+        }
     }
 }
 
@@ -67,7 +76,8 @@ extension ListOfContactsPage:UITableViewDelegate , UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = (storyboard?.instantiateViewController(withIdentifier: "ChatPageVC")) as! ChatPageVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        reciverUserID = contactsArr[indexPath.row].userID
+        performSegue(withIdentifier: "moveToChatting", sender: self)
+        
     }
 }
