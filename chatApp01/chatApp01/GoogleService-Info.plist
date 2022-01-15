@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>141526079191-k6idp9g533is3jg465fg8o1b26tiq4ip.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.141526079191-k6idp9g533is3jg465fg8o1b26tiq4ip</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCNI1EYxb4teq3MvZFAUuyLeEesrFdgzlc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>141526079191</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Osama.folta.chatApp01</string>
+	<key>PROJECT_ID</key>
+	<string>chatapp-25c10</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chatapp-25c10.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:141526079191:ios:094ee74edfe8eada518292</string>
+</dict>
+</plist>
