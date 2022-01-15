@@ -6,10 +6,16 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class ViewController: UIViewController {
+class Register: UIViewController {
     
     let db = Firestore.firestore()
-    var isTeacter = false
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .secondarySystemBackground
+        title = "Register Page"
+        setUpConstraint()
+    }
     
     let containerV = UIView()
     let registerBtn = UIButton()
@@ -19,14 +25,6 @@ class ViewController: UIViewController {
     let emailSeparatorV = UIView()
     let passTF = UITextField()
     let loginBtn = UIButton()
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .secondarySystemBackground
-        title = "Register Page"
-        setUpConstraint()
-    }
     
     func setUpConstraint() {
         containerV.layer.cornerRadius = 5

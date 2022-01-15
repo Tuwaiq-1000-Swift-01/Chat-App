@@ -1,4 +1,4 @@
-//
+
 import UIKit
 import Firebase
 import FirebaseFirestore
@@ -38,12 +38,11 @@ class  ContactVC: UITableViewController {
     }
     
     @objc func singOutTpd() {
-        let out = Auth.auth()
         do {
-            try out.signOut()
+            try Auth.auth().signOut()
             dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
-            print ("Error signing out: \(signOutError.localizedDescription)")
+            print (signOutError.localizedDescription)
         }
     }
     

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F7C351B27919E4E00008050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C351A27919E4E00008050 /* AppDelegate.swift */; };
 		0F7C351D27919E4E00008050 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C351C27919E4E00008050 /* SceneDelegate.swift */; };
-		0F7C351F27919E4E00008050 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C351E27919E4E00008050 /* ViewController.swift */; };
+		0F7C351F27919E4E00008050 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C351E27919E4E00008050 /* Register.swift */; };
 		0F7C352227919E4E00008050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7C352027919E4E00008050 /* Main.storyboard */; };
 		0F7C352427919E4F00008050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7C352327919E4F00008050 /* Assets.xcassets */; };
 		0F7C352727919E4F00008050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7C352527919E4F00008050 /* LaunchScreen.storyboard */; };
@@ -25,7 +25,7 @@
 		0F7C351727919E4E00008050 /* chatting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F7C351A27919E4E00008050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F7C351C27919E4E00008050 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0F7C351E27919E4E00008050 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0F7C351E27919E4E00008050 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		0F7C352127919E4E00008050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F7C352327919E4F00008050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F7C352627919E4F00008050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,11 +75,9 @@
 			children = (
 				0F7C351A27919E4E00008050 /* AppDelegate.swift */,
 				0F7C351C27919E4E00008050 /* SceneDelegate.swift */,
-				0F7C351E27919E4E00008050 /* ViewController.swift */,
-				0FA7C7322791C3CD00853B5E /* ContactVC.swift */,
-				0F9B72102791D7E100D2725B /* LoginVC.swift */,
-				0F9B720E2791CC7900D2725B /* ChatVC.swift */,
 				0F7C35302791A53400008050 /* Model.swift */,
+				0FB5EA312793162500ED9D90 /* HomeVC */,
+				0FB5EA322793165D00ED9D90 /* ChatVC */,
 				0F7C352027919E4E00008050 /* Main.storyboard */,
 				0F7C352327919E4F00008050 /* Assets.xcassets */,
 				0F7C352527919E4F00008050 /* LaunchScreen.storyboard */,
@@ -87,6 +85,24 @@
 				0F7C352E27919FB800008050 /* GoogleService-Info.plist */,
 			);
 			path = chatting;
+			sourceTree = "<group>";
+		};
+		0FB5EA312793162500ED9D90 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				0F7C351E27919E4E00008050 /* Register.swift */,
+				0F9B72102791D7E100D2725B /* LoginVC.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		0FB5EA322793165D00ED9D90 /* ChatVC */ = {
+			isa = PBXGroup;
+			children = (
+				0FA7C7322791C3CD00853B5E /* ContactVC.swift */,
+				0F9B720E2791CC7900D2725B /* ChatVC.swift */,
+			);
+			path = ChatVC;
 			sourceTree = "<group>";
 		};
 		325643298A0957DC628BEC58 /* Pods */ = {
@@ -222,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F7C351F27919E4E00008050 /* ViewController.swift in Sources */,
+				0F7C351F27919E4E00008050 /* Register.swift in Sources */,
 				0F7C351B27919E4E00008050 /* AppDelegate.swift in Sources */,
 				0F9B72112791D7E100D2725B /* LoginVC.swift in Sources */,
 				0F9B720F2791CC7900D2725B /* ChatVC.swift in Sources */,

@@ -14,6 +14,7 @@ class ChatVC: UIViewController {
         setupUI()
         getAllMessages()
         chatTV.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        messageTF.delegate = self
     }
     
     let chatTV: UITableView = {
@@ -26,6 +27,7 @@ class ChatVC: UIViewController {
         $0.placeholder = "Message"
         $0.backgroundColor = .init(white: 0.85, alpha: 1)
         $0.layer.cornerRadius = 22.5
+        $0.returnKeyType = .send
         return $0
     }(UITextField())
     
@@ -80,10 +82,11 @@ extension ChatVC : UITableViewDelegate , UITableViewDataSource {
         print(messages[indexPath.row].content)
         if messages[indexPath.row].sender == currentUserID {
             cell.textLabel?.textAlignment = .right
-            cell.textLabel?.textColor = .blue
+            cell.textLabel?.textColor = .black
+            cell.backgroundColor = .systemGray6
         } else {
             cell.textLabel?.textAlignment = .left
-            cell.textLabel?.textColor = .red
+            cell.textLabel?.textColor = .systemBlue
         }
         return cell
     }
@@ -165,5 +168,12 @@ extension ChatVC {
                     
                 }
             }
+    }
+}
+
+extension ChatVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendMessage()
+        return true
     }
 }
