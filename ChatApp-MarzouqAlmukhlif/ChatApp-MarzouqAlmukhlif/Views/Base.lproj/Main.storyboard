@@ -1163,7 +1163,7 @@
                             <constraint firstItem="jc6-fF-dd1" firstAttribute="top" secondItem="7h6-DO-o4F" secondAttribute="bottom" constant="15.5" id="uUD-zD-YuE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Setting" image="gear.circle" catalog="system" selectedImage="gear.circle.fill" id="ThN-o7-j6N"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="ThN-o7-j6N"/>
                     <navigationItem key="navigationItem" id="T4f-ld-cjC"/>
                     <connections>
                         <outlet property="profilePicture" destination="aAx-vn-a2t" id="Tbz-1y-0Zr"/>
@@ -1177,10 +1177,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gear.circle" catalog="system" width="128" height="121"/>
-        <image name="gear.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="message" width="142.5" height="133.5"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="message" catalog="system" width="128" height="113"/>
+        <image name="message" width="142.5" height="133.5"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

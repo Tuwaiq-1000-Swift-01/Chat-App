@@ -62,7 +62,7 @@ class ChatMessageVC: UIViewController {
     let userID = Auth.auth().currentUser?.uid
     
     db.collection("Users").document(userID!).setData(["lastMessage":messages.last?.text ?? ""], merge: true)
-    timer.invalidate()
+//    timer.invalidate()
   }
   
   
