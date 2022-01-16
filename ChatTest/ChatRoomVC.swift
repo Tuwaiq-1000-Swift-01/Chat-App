@@ -13,7 +13,7 @@ class ChatRoomVC: UIViewController , UITableViewDelegate ,UITableViewDataSource 
     
     var user : User?
     let db = Firestore.firestore()
-    //var
+    var arrMessage : [Message] = []
     @IBOutlet weak var nickNameMain: UILabel!
     
     @IBOutlet weak var messageTable: UITableView!
@@ -29,13 +29,13 @@ class ChatRoomVC: UIViewController , UITableViewDelegate ,UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return arrMessage.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
-      //  cell.nickNameLabel.text = user?.nickName
-       // cell.messageLabel.text =
+        cell.nickNameLabel.text = arrMessage[indexPath.row].reciver
+        cell.messageLabel.text = arrMessage[indexPath.row].text
         return cell
     }
 
@@ -44,26 +44,52 @@ class ChatRoomVC: UIViewController , UITableViewDelegate ,UITableViewDataSource 
         guard let currentuser = Auth.auth().currentUser?.uid,
               let reciver = user?.idUser else { return }
        let messageRef =  db.collection("Message")
-        messageRef.whereField("sender", isEqualTo: currentuser).whereField("reciver", isEqualTo: currentuser )
-        messageRef.whereField("reciver", isEqualTo: currentuser ).whereField("sender", isEqualTo: reciver )
-            .addSnapshotListener { snapshot , error in
+        //arrMessage.removeAll()
+        messageRef.whereField("sender", isEqualTo: currentuser).whereField("reciver", isEqualTo: reciver ).addSnapshotListener { snapshot , error in
+            self.arrMessage.removeAll()
             if let error = error {
                 print(error.localizedDescription)
             }else {
-                print(snapshot?.documents.count)
+               // print(snapshot?.documents.count)
                 guard let messages = snapshot?.documents else { return }
                 for message in messages {
-                    let messageData = message.data() as! [String : String]
-                    print( messageData["text"] , messageData["reciver"] ,
-                    messageData["sender"] )
-                    
+                    let id = message.get("id") as! String
+                    let text = message.get("text") as! String
+                    let sender = message.get("sender") as! String
+                    let reciver = message.get("reciver") as! String
+                    let all = Message(id: id, text: text, sender: sender, reciver: reciver)
+                    self.arrMessage.append(all)
+            }
+                self.messageTable.reloadData()
+        }
+        messageRef.whereField("sender", isEqualTo: reciver ).whereField("reciver", isEqualTo: currentuser )
+            .addSnapshotListener { snapshot , error in
+                self.arrMessage.removeAll()
+            if let error = error {
+                print(error.localizedDescription)
+            }else {
+                
+                guard let messages = snapshot?.documents else { return }
+                for message in messages {
+                    let id = message.get("id") as! String
+                    let text = message.get("text") as! String
+                    let sender = message.get("sender") as! String
+                    let reciver = message.get("reciver") as! String
+                    let all = Message(id: id, text: text, sender: sender, reciver: reciver)
+                    self.arrMessage.append(all)
 
                 }
+                self.messageTable.reloadData()
             }
             
         }
     }
-    @IBAction func onPressSend(_ sender: Any) {
+    }
+   
+        
+        
+        
+        @IBAction func onPressSend(_ sender: Any) {
         guard let idSender = Auth.auth().currentUser?.uid,
               let messageEnter = enterMessageField.text ,
               let reciver = user?.idUser else { return }
