@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Screen Shot 1443-06-12 at 6.13.17 PM_prev_ui.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
