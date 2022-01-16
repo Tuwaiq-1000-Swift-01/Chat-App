@@ -44,7 +44,7 @@ class ChatRoomVC: UIViewController , UITableViewDelegate ,UITableViewDataSource 
         guard let currentuser = Auth.auth().currentUser?.uid,
               let reciver = user?.idUser else { return }
        let messageRef =  db.collection("Message")
-        //arrMessage.removeAll()
+        arrMessage.removeAll()
         messageRef.whereField("sender", isEqualTo: currentuser).whereField("reciver", isEqualTo: reciver ).addSnapshotListener { snapshot , error in
             self.arrMessage.removeAll()
             if let error = error {
@@ -59,31 +59,34 @@ class ChatRoomVC: UIViewController , UITableViewDelegate ,UITableViewDataSource 
                     let reciver = message.get("reciver") as! String
                     let all = Message(id: id, text: text, sender: sender, reciver: reciver)
                     self.arrMessage.append(all)
-            }
-                self.messageTable.reloadData()
-        }
-        messageRef.whereField("sender", isEqualTo: reciver ).whereField("reciver", isEqualTo: currentuser )
-            .addSnapshotListener { snapshot , error in
-                self.arrMessage.removeAll()
-            if let error = error {
-                print(error.localizedDescription)
-            }else {
-                
-                guard let messages = snapshot?.documents else { return }
-                for message in messages {
-                    let id = message.get("id") as! String
-                    let text = message.get("text") as! String
-                    let sender = message.get("sender") as! String
-                    let reciver = message.get("reciver") as! String
-                    let all = Message(id: id, text: text, sender: sender, reciver: reciver)
-                    self.arrMessage.append(all)
+                  }
+                messageRef.whereField("sender", isEqualTo: reciver ).whereField("reciver", isEqualTo: currentuser )
+                    .addSnapshotListener { snapshot , error in
+                       
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }else {
+                        
+                        guard let messages = snapshot?.documents else { return }
+                        for message in messages {
+                            let id = message.get("id") as! String
+                            let text = message.get("text") as! String
+                            let sender = message.get("sender") as! String
+                            let reciver = message.get("reciver") as! String
+                            let all = Message(id: id, text: text, sender: sender, reciver: reciver)
+                            self.arrMessage.append(all)
 
-                }
+                        }
+                        self.messageTable.reloadData()
+                    }
+                    
+                } // end snapshot
                 self.messageTable.reloadData()
-            }
-            
+                
         }
-    }
+        }
+        
+    
     }
    
         
