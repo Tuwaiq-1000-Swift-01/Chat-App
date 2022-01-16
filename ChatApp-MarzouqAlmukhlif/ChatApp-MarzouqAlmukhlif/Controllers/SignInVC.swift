@@ -9,21 +9,21 @@ import UIKit
 import Firebase
 
 class SignInVC: UIViewController {
-
+  
   
   @IBOutlet weak var emailField: UITextField!
   
   @IBOutlet weak var passwordField: UITextField!
   @IBOutlet weak var scrollView: UIScrollView!
   var textFeildSelected:UITextField!
-
+  
   override func viewDidLoad() {
-        super.viewDidLoad()
-      setNotificationKeyboard()
+    super.viewDidLoad()
+    setNotificationKeyboard()
     configureHideKeyboardWhenRootViewTapped()
-    }
-
-
+  }
+  
+  
   
   
   @IBAction func signUpPressed(_ sender: UIButton) {
@@ -89,10 +89,10 @@ class SignInVC: UIViewController {
       
       if !isValied {
         alert(message: "Password must contain at least one capital letter and one number")
-      return false
+        return false
       }
     }
-        
+    
     return true
     
   }
@@ -113,61 +113,61 @@ class SignInVC: UIViewController {
   
   func setNotificationKeyboard ()  {
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
-       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: UIResponder.keyboardWillHideNotification, object: nil)
-         }
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: UIResponder.keyboardWillHideNotification, object: nil)
+  }
   
-@objc func keyboardWasShown(notification: NSNotification)
+  @objc func keyboardWasShown(notification: NSNotification)
+  {
+    let info = notification.userInfo!
+    let keyboardSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+    let contentInsets : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize!.height+10, right: 0.0)
+    self.scrollView.contentInset = contentInsets
+    self.scrollView.scrollIndicatorInsets = contentInsets
+    var aRect : CGRect = self.view.frame
+    aRect.size.height -= keyboardSize!.height
+    if let activeField = self.textFeildSelected
+    {
+      if (!aRect.contains(activeField.frame.origin))
       {
-        let info = notification.userInfo!
-        let keyboardSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize!.height+10, right: 0.0)
-          self.scrollView.contentInset = contentInsets
-          self.scrollView.scrollIndicatorInsets = contentInsets
-          var aRect : CGRect = self.view.frame
-          aRect.size.height -= keyboardSize!.height
-          if let activeField = self.textFeildSelected
-          {
-              if (!aRect.contains(activeField.frame.origin))
-              {
-                  self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
-              }
-          }
+        self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
       }
-
-
+    }
+  }
+  
+  
   @objc func keyboardWillBeHidden(notification: NSNotification){
     let contentInsets : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0,bottom: 0.0, right: 0.0)
-          self.scrollView.contentInset = contentInsets
-          self.scrollView.scrollIndicatorInsets = contentInsets
-          self.view.endEditing(true)
-      }
+    self.scrollView.contentInset = contentInsets
+    self.scrollView.scrollIndicatorInsets = contentInsets
+    self.view.endEditing(true)
+  }
   
-
+  
 }
 
 
 extension SignInVC:UITextFieldDelegate {
   func textFieldDidBeginEditing(_ textField: UITextField)
-     {
-       textFeildSelected = textField;
-     }
+  {
+    textFeildSelected = textField;
+  }
   
-     func textFieldDidEndEditing(_ textField: UITextField)
-     {
-       textFeildSelected = nil;
-     }
+  func textFieldDidEndEditing(_ textField: UITextField)
+  {
+    textFeildSelected = nil;
+  }
   
-
+  
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-     // Try to find next responder
-     if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-        nextField.becomeFirstResponder()
-     } else {
-        // Not found, so remove keyboard.
-        textField.resignFirstResponder()
-     }
-     // Do not add a line break
-     return false
+    // Try to find next responder
+    if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+      nextField.becomeFirstResponder()
+    } else {
+      // Not found, so remove keyboard.
+      textField.resignFirstResponder()
+    }
+    // Do not add a line break
+    return false
   }
   
   

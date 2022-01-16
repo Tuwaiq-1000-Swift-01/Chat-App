@@ -1045,12 +1045,15 @@
                                                             <constraint firstAttribute="height" constant="50" id="Hsg-Hm-Dsc"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="DINNextLTW23-Regular" family="DIN Next LT W23" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yj5-Hg-Skz" id="Nnt-Cb-Ong"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ4-X5-sbQ">
                                                         <rect key="frame" x="0.0" y="398.5" width="335" height="29.5"/>
@@ -1058,7 +1061,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyx-EN-CHC">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyx-EN-CHC">
                                                         <rect key="frame" x="0.0" y="443" width="335" height="50"/>
                                                         <color key="backgroundColor" name="TextFieldBackground"/>
                                                         <constraints>
@@ -1071,6 +1074,9 @@
                                                                 <integer key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yj5-Hg-Skz" id="7fC-wR-w1B"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaW-YZ-fyF">
                                                         <rect key="frame" x="0.0" y="508" width="335" height="50"/>
@@ -1167,6 +1173,7 @@
                     <navigationItem key="navigationItem" id="T4f-ld-cjC"/>
                     <connections>
                         <outlet property="profilePicture" destination="aAx-vn-a2t" id="Tbz-1y-0Zr"/>
+                        <outlet property="scrollView" destination="NgG-01-7kS" id="KDh-nu-c4N"/>
                         <outlet property="statusField" destination="nyx-EN-CHC" id="Mdu-ET-Gl9"/>
                         <outlet property="usernameField" destination="joz-lO-DXQ" id="P2j-LL-inE"/>
                     </connections>
@@ -1179,8 +1186,8 @@
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
-        <image name="message" catalog="system" width="128" height="113"/>
         <image name="message" width="142.5" height="133.5"/>
+        <image name="message" catalog="system" width="128" height="113"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
