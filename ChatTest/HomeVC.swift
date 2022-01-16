@@ -57,6 +57,12 @@ class HomeVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
                     
                     
                 }
+                let currUser = Auth.auth().currentUser
+                for (index, user) in self.arrUsers.enumerated(){
+                    if ( user.idUser == currUser?.uid){
+                        self.arrUsers.remove(at: index)
+                    }
+                }
                 self.usersTable.reloadData()
             }else{
                 print(error?.localizedDescription)

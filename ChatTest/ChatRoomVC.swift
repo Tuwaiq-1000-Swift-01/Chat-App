@@ -34,7 +34,20 @@ class ChatRoomVC: UIViewController , UITableViewDelegate ,UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
-        cell.nickNameLabel.text = arrMessage[indexPath.row].reciver
+        //cell.nickNameLabel.text =
+        let idSender = arrMessage[indexPath.row].sender
+        db.collection("Users").document(String(idSender!)).getDocument { snapshot , error in
+            if (error == nil ){
+                guard let user = snapshot else { return }
+                let nickName = user.get("name") as! String
+                cell.nickNameLabel.text = nickName
+                
+            }else{
+                print(error?.localizedDescription)
+            }
+                
+            
+        }
         cell.messageLabel.text = arrMessage[indexPath.row].text
         return cell
     }
